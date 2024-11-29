@@ -1,6 +1,6 @@
 # Basic Dockerfile   
 
-This is based off the DevOps Roadmap Project [BAsic Dockerfile](https://roadmap.sh/projects/basic-dockerfile)
+This is based off the DevOps Roadmap Project [Basic Dockerfile](https://roadmap.sh/projects/basic-dockerfile)
 
 Build a basic Dockerfile to create a Docker image.
 
