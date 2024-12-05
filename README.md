@@ -48,7 +48,9 @@ Create a workflow that will build a Docker image and push it to the container re
 
 Once you are done with the project, you will have practiced dockerizing applications, setting up remote servers, implementing CI/CD workflows and secrets management.
 
-## Notes 
+# Notes 
+
+## To Run:
 
 - Build Docker Image: `docker build -t hello-world .`
 - Run Image: `docker run -d -p 4001:4000 hello-world`
