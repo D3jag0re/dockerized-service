@@ -58,10 +58,10 @@ Once you are done with the project, you will have practiced dockerizing applicat
 - To check logs `docker logs <container-id>`
 - If changes are made to the app, you will need to rebuild the image. 
 
-## 
+## Development Notes:
 
 - [X] First made a simple hello, world app in docker container 
 - [X] Used express framework 
 - [X] Tested .env file by using SECRET_MESSAGE in the /secret route response 
-- [] Implimented Basic Auth for the /secret route
+- [X] Implemented Basic Auth for the /secret route
 
