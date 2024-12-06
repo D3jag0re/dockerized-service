@@ -8,5 +8,10 @@
       "start": "app.js"
     },
     "author": "D3jag0re (https://github.com/D3jag0re) ",
-    "license": "ISC"
+    "license": "ISC",
+    "dependencies": {
+      "express": "^4.18.1",
+      "basic-auth": "2.0.1",
+      "dotenv": "16.4.7"
+    }
   }

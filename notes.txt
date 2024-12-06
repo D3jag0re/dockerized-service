@@ -1,0 +1,11 @@
+
+
+
+
+
+
+
+// Route with basic auth
+app.get('/secret', basicauth (req, res) => {
+    res.send('Welcome to contact us page');
+});
