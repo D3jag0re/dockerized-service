@@ -1,15 +1,20 @@
-const { createServer } = require('node:http');
-
-const hostname = '0.0.0.0';
+// Using express framework 
+const express = require('express');
+const app = express();
 const port = 4000;
 
-const server = createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
+app.get('/', (req, res) => {
+    res.send('Hello World!');
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+app.get('/about', (req, res) => {
+    res.send('Welcome to about us page');
 });
 
+app.get('/contact', (req, res) => {
+    res.send('Welcome to contact us page');
+});
+
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
