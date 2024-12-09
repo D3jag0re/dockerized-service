@@ -64,4 +64,6 @@ Once you are done with the project, you will have practiced dockerizing applicat
 - [X] Used express framework 
 - [X] Tested .env file by using SECRET_MESSAGE in the /secret route response 
 - [X] Implemented Basic Auth for the /secret route
+- [X] Terraform for digital ocean deployment 
+- [] GitHub Actions for deployment 
 
