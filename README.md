@@ -71,8 +71,8 @@ Once you are done with the project, you will have practiced dockerizing applicat
 - [X] Implemented Basic Auth for the /secret route
 - [X] Terraform for digital ocean deployment (local)
 - [X] Terraform with remote state (locally run)
-- [] GitHub Actions for terraform deployment
-- [] GitHub Actions for full deployment 
+- [ ] GitHub Actions for terraform deployment
+- [ ] GitHub Actions for full deployment 
 
 ## Cost Notes: 
 
