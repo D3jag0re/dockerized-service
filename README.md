@@ -50,7 +50,7 @@ Once you are done with the project, you will have practiced dockerizing applicat
 
 # Notes 
 
-## To Run:
+## To Run Locally:
 
 - Build Docker Image: `docker build -t hello-world .`
 - Run Image: `docker run -d -p 4001:4000 hello-world`
@@ -58,12 +58,23 @@ Once you are done with the project, you will have practiced dockerizing applicat
 - To check logs `docker logs <container-id>`
 - If changes are made to the app, you will need to rebuild the image. 
 
+## To Run via CI/CD On Digital Ocean: 
+
+- Create a Spaces Bucket and keys (for remote state management)
+- Create Repository secrets in GitHub for DO_TOKEN and keys above 
+
 ## Development Notes:
 
 - [X] First made a simple hello, world app in docker container 
 - [X] Used express framework 
 - [X] Tested .env file by using SECRET_MESSAGE in the /secret route response 
 - [X] Implemented Basic Auth for the /secret route
-- [X] Terraform for digital ocean deployment 
-- [] GitHub Actions for deployment 
+- [X] Terraform for digital ocean deployment (local)
+- [X] Terraform with remote state (locally run)
+- [] GitHub Actions for terraform deployment
+- [] GitHub Actions for full deployment 
+
+## Cost Notes: 
+
+- Digital Ocean Spaces Bucket costs $5/m
 

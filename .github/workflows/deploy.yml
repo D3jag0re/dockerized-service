@@ -1,11 +1,20 @@
 name: Build, Push and Deploy a Docker Image
 
+# Build droplet 
+# Build container image 
+# Push to registry (DO)
+# Deploy to droplet
+# Run
+
 on:
     push:
       branches: [doomguy]
 
+env:
+    DO_TOKEN: "${{ secrets.DO_TOKEN }}"
+
 jobs:
- deploy-app:
+ build-droplet:
    runs-on: ubuntu-latest
    steps:
      - name: Checkout repository
@@ -14,3 +23,5 @@ jobs:
        uses: digitalocean/app_action/deploy@v2
        with:
          token: ${{ secrets.DO_TOKEN }}s
+
+
