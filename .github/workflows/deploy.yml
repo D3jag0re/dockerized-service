@@ -1,6 +1,6 @@
 name: Build, Push and Deploy a Docker Image
 
-# Build droplet 
+# [X] Build droplet 
 # Build container image 
 # Push to registry (DO)
 # Deploy to droplet
