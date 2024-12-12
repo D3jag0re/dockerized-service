@@ -28,11 +28,11 @@ jobs:
     
      - name: Set D_O S3Var
        run: |
-        export AWS_ACCESS_KEY_ID="${{ secrets.DO_SPACES_ACCESS_KEY }}"
-        export AWS_SECRET_ACCESS_KEY="${{ secrets.DO_SPACES_SECRET_KEY }}"
+        echo "AWS_ACCESS_KEY_ID=${{ secrets.DO_SPACES_ACCESS_KEY }}" >> $GITHUB_ENV
+        echo "AWS_SECRET_ACCESS_KEY=${{ secrets.DO_SPACES_SECRET_KEY }}" >> $GITHUB_ENV
 
      - name: Validate
-       run: echo "Secret is $AWS_ACCESS_KEY_ID && echo " and also is $AWS_SECRET_ACCESS_KEY""
+       run: echo "Secret is $AWS_ACCESS_KEY_ID and also is $AWS_SECRET_ACCESS_KEY"
        
        
      - name: Terraform Init

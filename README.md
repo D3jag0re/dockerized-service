@@ -78,3 +78,9 @@ Once you are done with the project, you will have practiced dockerizing applicat
 
 - Digital Ocean Spaces Bucket costs $5/m
 
+## Lessons Learned: 
+
+- Read all the docs before wondering why terraform can't get creds (did not set variables before running init)
+
+- exporting variables in GHA steps DO NOT PERSIST across subsequent steps. Therefore had to modify step to write them to GITHUB_ENV. (i.e. echo to github_env instead of export)
+
