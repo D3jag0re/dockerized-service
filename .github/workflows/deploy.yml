@@ -16,12 +16,30 @@ env:
 jobs:
  build-droplet:
    runs-on: ubuntu-latest
+
    steps:
      - name: Checkout repository
        uses: actions/checkout@v4
-     - name: Deploy the app
-       uses: digitalocean/app_action/deploy@v2
+
+     - name: Install Terraform
+       uses: hashicorp/setup-terraform@v3
        with:
-         token: ${{ secrets.DO_TOKEN }}s
+        terraform_version: 1.10.2
+    
+     - name: Set D_O S3Var
+       run: export AWS_ACCESS_KEY_ID="DO00V8TC4NACLJTTB2L3" && export AWS_SECRET_ACCESS_KEY="UP3hX5UKhMO+dqvd/lUcHvRvCqR1qReNi8gM1yozSVM"
+        
+     - name: Terraform Init
+       run: terraform init
+       working-directory: ./terraform
+       env:
+        DO_TOKEN: ${{ secrets.DO_TOKEN }}
+
+     - name: Terraform Apply
+       id: apply
+       run: terraform apply -auto-approve
+       working-directory: ./terraform
+       env:
+        DO_TOKEN: ${{ secrets.DO_TOKEN }}
 
 
