@@ -44,10 +44,10 @@ jobs:
 
      - name: Terraform Apply
        id: apply
-       run: terraform apply -auto-approve
+       run: terraform apply -auto-approve -var "do_token=${{ secrets.DO_TOKEN }}"
        working-directory: ./terraform
        env:
         DO_TOKEN: ${{ secrets.DO_TOKEN }}
-        
+
 
 
