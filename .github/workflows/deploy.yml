@@ -34,12 +34,13 @@ jobs:
      - name: Validate
        run: echo "Secret is $AWS_ACCESS_KEY_ID and also is $AWS_SECRET_ACCESS_KEY"
        
-       
      - name: Terraform Init
        run: terraform init
        working-directory: ./terraform
        env:
         DO_TOKEN: ${{ secrets.DO_TOKEN }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.DO_SPACES_ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.DO_SPACES_SECRET_KEY }}
 
      - name: Terraform Apply
        id: apply
