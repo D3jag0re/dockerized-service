@@ -85,3 +85,4 @@ Once you are done with the project, you will have practiced dockerizing applicat
 
 - exporting variables in GHA steps DO NOT PERSIST across subsequent steps. Therefore had to modify step to write them to GITHUB_ENV. (i.e. echo to github_env instead of export)
 
+- passing in -var "do_token=${{ secrets.DO_TOKEN }}" in lieu of .tfvars file
