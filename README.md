@@ -61,7 +61,7 @@ Once you are done with the project, you will have practiced dockerizing applicat
 ## To Run via CI/CD On Digital Ocean: 
 
 - Create a Spaces Bucket and keys (for remote state management)
-- Create Repository secrets in GitHub for DO_TOKEN and keys above 
+- Create Repository secrets in GitHub for DO_TOKEN and keys above (DO_SPACES_ACCESS_KEY && DO_SPACES_SECRET_KEY)
 
 ## Development Notes:
 

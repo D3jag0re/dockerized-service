@@ -8,7 +8,7 @@ name: Build, Push and Deploy a Docker Image
 
 on:
     push:
-      branches: [doomguy]
+      branches: [main]
 
 env:
     DO_TOKEN: "${{ secrets.DO_TOKEN }}"
