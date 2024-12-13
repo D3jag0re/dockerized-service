@@ -6,6 +6,10 @@ Use GitHub Actions to Deploy a Dockerized Node.js Service
 
 This is number 15 of [21 DevOps Projects](https://roadmap.sh/devops/projects) as per roadmap.sh
 
+This also satisfies: 
+- [13 - IaC on DigitalOcean](https://roadmap.sh/projects/iac-digitalocean)
+- [14 - Node.js Service Deployment](https://roadmap.sh/projects/nodejs-service-deployment) of the project as well. 
+
 ## Description From Site 
 
 The goal of this project is to dockerize a simple Node.js service and deploy it to a remote server using GitHub Actions. You will also practice secrets management.

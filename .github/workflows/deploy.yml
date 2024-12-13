@@ -3,8 +3,8 @@ name: Build, Push and Deploy a Docker Image
 # [X] Build droplet 
 # [X] Build container image 
 # [X] Push to registry (DO)
-# [ ] Deploy to droplet
-# [ ] Run
+# [X] Deploy to droplet
+# [X] Run
 
 on:
     push:
