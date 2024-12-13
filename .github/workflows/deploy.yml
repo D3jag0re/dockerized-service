@@ -51,6 +51,7 @@ jobs:
 
      - name: Debug Terraform Outputs
        run: terraform output -json
+       working-directory: ./terraform
       
      - name: Get Droplet Outputs
        id: outputs
@@ -59,6 +60,7 @@ jobs:
         echo "id=$(echo $DROPLET_INFO | jq -r '.id')" >> $GITHUB_ENV
         echo "ipv4=$(echo $DROPLET_INFO | jq -r '.ipv4')" >> $GITHUB_ENV
         echo "name=$(echo $DROPLET_INFO | jq -r '.name')" >> $GITHUB_ENV
+       working-directory: ./terraform  
 
      - name: Validate Droplet Info
        run: |
