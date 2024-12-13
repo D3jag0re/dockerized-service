@@ -41,9 +41,10 @@ jobs:
 
      - name: Terraform Apply
        id: apply
-       run: terraform apply -auto-approve \
-            -var "do_token=${{ secrets.DO_TOKEN }}" \
-            -var "public_key=${{ secrets.DO_SSH_PUBLIC_KEY }}"
+       run: |
+         terraform apply -auto-approve \
+          -var "do_token=${{ secrets.DO_TOKEN }}" \
+          -var "public_key=${{ secrets.DO_SSH_PUBLIC_KEY }}"
        working-directory: ./terraform
        env:
         DO_TOKEN: ${{ secrets.DO_TOKEN }}
