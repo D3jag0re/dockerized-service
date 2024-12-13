@@ -49,6 +49,9 @@ jobs:
        env:
         DO_TOKEN: ${{ secrets.DO_TOKEN }}
 
+     - name: Debug Terraform Outputs
+       run: terraform output -json
+      
      - name: Get Droplet Outputs
        id: outputs
        run: |
