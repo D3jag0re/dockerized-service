@@ -61,7 +61,16 @@ Once you are done with the project, you will have practiced dockerizing applicat
 ## To Run via CI/CD On Digital Ocean: 
 
 - Create a Spaces Bucket and keys (for remote state management)
-- Create Repository secrets in GitHub for DO_TOKEN and keys above (DO_SPACES_ACCESS_KEY && DO_SPACES_SECRET_KEY)
+- Create a SSH Key Pair to be used with your droplet
+- Create Repository secrets in GitHub for:
+    - DO_TOKEN 
+    - DO_SPACES_ACCESS_KEY 
+    - DO_SPACES_SECRET_KEY
+    - DO_SSH_PRIVATE_KEY
+    - DO_SSH_PUBLIC_KEY
+
+- Run workflow
+- Navigate to the droplet_ip:4001 
 
 ## Development Notes:
 
@@ -73,7 +82,7 @@ Once you are done with the project, you will have practiced dockerizing applicat
 - [X] Terraform with remote state (locally run)
 - [X] GitHub Actions for terraform deployment
 - [X] GitHub Actions for Container build and push
-- [ ] Github Actions for Container deployment 
+- [X] Github Actions for Container deployment 
 
 ## Cost Notes: 
 
