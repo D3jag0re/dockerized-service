@@ -88,3 +88,8 @@ Once you are done with the project, you will have practiced dockerizing applicat
 - Setting env variables in GHA:  echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 
 - passing in -var "do_token=${{ secrets.DO_TOKEN }}" in lieu of .tfvars file
+
+- terraform outputs are structured as siingle objects, so could not output like droplet_indo.id. Had 2 options:
+    - Output JSON and parse with jq 
+    - Output each value individually with TF 
+    - Chose JSON and jq for jq practice purposes. 

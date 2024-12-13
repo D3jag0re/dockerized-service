@@ -52,9 +52,10 @@ jobs:
      - name: Get Droplet Outputs
        id: outputs
        run: |
-        echo "id=$(terraform output -raw droplet_info.id)" >> $GITHUB_ENV
-        echo "name=$(terraform output -raw droplet_info.name)" >> $GITHUB_ENV
-        echo "ipv4=$(terraform output -raw droplet_info.ipv4)" >> $GITHUB_ENV
+        DROPLET_INFO=$(terraform output -json droplet_info)
+        echo "id=$(echo $DROPLET_INFO | jq -r '.id')" >> $GITHUB_ENV
+        echo "ipv4=$(echo $DROPLET_INFO | jq -r '.ipv4')" >> $GITHUB_ENV
+        echo "name=$(echo $DROPLET_INFO | jq -r '.name')" >> $GITHUB_ENV
 
      - name: Validate Droplet Info
        run: |
