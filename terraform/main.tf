@@ -32,6 +32,5 @@ output "droplet_info" {
     id       = digitalocean_droplet.web.id
     name     = digitalocean_droplet.web.name
     ipv4     = digitalocean_droplet.web.ipv4_address
-    ipv6     = digitalocean_droplet.web.ipv6_address
   }
 }
