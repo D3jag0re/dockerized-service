@@ -20,13 +20,6 @@ jobs:
    steps:
      - name: Checkout repository
        uses: actions/checkout@v4
-
-     - name: Generate SSH Key
-       run: |
-         ssh-keygen -t rsa -b 4096 -f /tmp/id_rsa -N ""
-         echo "SSH_PRIVATE_KEY=$(cat /tmp/id_rsa)" >> $GITHUB_ENV
-         echo "SSH_PUBLIC_KEY=$(cat /tmp/id_rsa.pub)" >> $GITHUB_ENV
-         echo "ssh_key_path=/tmp/id_rsa" >> $GITHUB_ENV
         
      - name: Install Terraform
        uses: hashicorp/setup-terraform@v3
@@ -48,7 +41,7 @@ jobs:
 
      - name: Terraform Apply
        id: apply
-       run: terraform apply -auto-approve -var "do_token=${{ secrets.DO_TOKEN }}"
+       run: terraform apply -auto-approve -var "do_token=${{ secrets.DO_TOKEN }}" "public_key=${{ secrets.DO_SSH_PUBLIC_KEY }}"
        working-directory: ./terraform
        env:
         DO_TOKEN: ${{ secrets.DO_TOKEN }}
