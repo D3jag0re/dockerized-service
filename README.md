@@ -72,7 +72,7 @@ Once you are done with the project, you will have practiced dockerizing applicat
 - [X] Terraform for digital ocean deployment (local)
 - [X] Terraform with remote state (locally run)
 - [X] GitHub Actions for terraform deployment
-- [ ] GitHub Actions for Container build and push
+- [X] GitHub Actions for Container build and push
 - [ ] Github Actions for Container deployment 
 
 ## Cost Notes: 
@@ -93,3 +93,5 @@ Once you are done with the project, you will have practiced dockerizing applicat
     - Output JSON and parse with jq 
     - Output each value individually with TF 
     - Chose JSON and jq for jq practice purposes. 
+
+- Workflow environment variables do not work across jobs, so needed to use job-output.
