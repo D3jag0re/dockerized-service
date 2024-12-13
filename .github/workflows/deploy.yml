@@ -131,6 +131,9 @@ jobs:
             # Remove old container
             docker rm hello-world
 
+            # Login to registry
+            docker login -u ${{ secrets.DO_TOKEN }} -p ${{ secrets.DO_TOKEN }} registry.digitalocean.com
+
             # Run a new container from a new image
             docker run -d \
             --restart always \
