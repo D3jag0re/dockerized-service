@@ -120,6 +120,11 @@ jobs:
         key: ${{ secrets.DO_SSH_PRIVATE_KEY }}
         
         script: |
+
+            # Update packages 
+            sudo apt-get update
+            # install Docker 
+            sudo apt install docker.io -y 
             # Stop running container
             docker stop hello-world
 
