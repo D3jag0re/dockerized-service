@@ -48,10 +48,6 @@ jobs:
        working-directory: ./terraform
        env:
         DO_TOKEN: ${{ secrets.DO_TOKEN }}
-
-     - name: Debug Terraform Outputs
-       run: terraform output -json
-       working-directory: ./terraform
       
      - name: Get Droplet Outputs
        id: outputs
@@ -110,3 +106,23 @@ jobs:
     - name: Log in to DigitalOcean Container Registry with short-lived credentials
       run: doctl registry login --expiry-seconds 600 
 
+    - name: Deploy to Droplet via SSH Action
+      uses: appleboy/ssh-action@v1.2.0
+      with:
+        host: ${{ env.ipv4 }}
+        username: root
+        key: ${{ secrets.DO_SSH_PUBLIC_KEY }}"
+        
+        script: |
+            # Stop running container
+            docker stop hello-world
+
+            # Remove old container
+            docker rm hello-world
+
+            # Run a new container from a new image
+            docker run -d \
+            --restart always \
+            -p 4001:4000 \
+            --name hello-world \
+            registry.digitalocean.com/my-container-reg/hello-world
