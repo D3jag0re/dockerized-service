@@ -117,7 +117,7 @@ jobs:
       with:
         host: ${{ needs.build_droplet.outputs.ipv4 }}
         username: root
-        key: ${{ secrets.DO_SSH_PUBLIC_KEY }}"
+        key: ${{ secrets.DO_SSH_PRIVATE_KEY }}"
         
         script: |
             # Stop running container
