@@ -1,10 +1,10 @@
 name: Build, Push and Deploy a Docker Image
 
 # [X] Build droplet 
-# Build container image 
-# Push to registry (DO)
-# Deploy to droplet
-# Run
+# [ ] Build container image 
+# [ ] Push to registry (DO)
+# [ ] Deploy to droplet
+# [ ] Run
 
 on:
     push:
@@ -30,9 +30,6 @@ jobs:
        run: |
         echo "AWS_ACCESS_KEY_ID=${{ secrets.DO_SPACES_ACCESS_KEY }}" >> $GITHUB_ENV
         echo "AWS_SECRET_ACCESS_KEY=${{ secrets.DO_SPACES_SECRET_KEY }}" >> $GITHUB_ENV
-
-     - name: Validate
-       run: echo "Secret is $AWS_ACCESS_KEY_ID and also is $AWS_SECRET_ACCESS_KEY"
        
      - name: Terraform Init
        run: terraform init
@@ -49,5 +46,27 @@ jobs:
        env:
         DO_TOKEN: ${{ secrets.DO_TOKEN }}
 
+ build_and_push: 
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
+    - name: Build container image 
+      run: docker build -t hello-world .   
 
+    - name: Install doctl
+      uses: digitalocean/action-doctl@v2
+      with:
+        token: ${{ secrets.DO_TOKEN }}  
+
+    - name: Log in to DigitalOcean Container Registry with short-lived credentials
+      run: doctl registry login --expiry-seconds 600        
+    
+    - name: Tag image 
+      run: docker tag hello-world registry.digitalocean.com/my-container-reg/hello-world
+      # docker tag <my-image> registry.digitalocean.com/<my-registry>/<my-image>
+
+    - name: Push image to DO Container Registry 
+      run: docker push registry.digitalocean.com/my-container-reg/hello-world
+      # docker push registry.digitalocean.com/<my-registry>/<my-image>
